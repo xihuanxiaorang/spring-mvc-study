@@ -3,6 +3,7 @@ package top.xiaorang.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import top.xiaorang.pojo.User;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,8 +22,8 @@ public class UserController {
     }
 
     @RequestMapping(value = "query", method = RequestMethod.GET)
-    public String query(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("UserController#query");
+    public String query(@RequestParam(defaultValue = "1") Integer pageNum) {
+        System.out.println("pageNum=" + pageNum);
         return "result";
     }
 
